@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | The Shop Barbershop</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">THE SHOP</span>
+        <span class="logo-sub">Burlington, VT</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#barbers">Barbers</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="booking.html" class="btn-nav active">Book Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BOOKING HERO -->
+  <section class="booking-hero">
+    <div class="booking-hero-content">
+      <p class="section-eyebrow">Get Your Cut</p>
+      <h1>Book Your Appointment</h1>
+      <p>Select your barber, service, and preferred time. We'll confirm your booking shortly.</p>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking-section">
+    <div class="container">
+      <div class="booking-layout">
+
+        <!-- FORM -->
+        <div class="booking-form-wrap">
+          <div class="booking-steps">
+            <div class="step active" data-step="1"><span>1</span> Your Info</div>
+            <div class="step" data-step="2"><span>2</span> Service</div>
+            <div class="step" data-step="3"><span>3</span> Barber</div>
+            <div class="step" data-step="4"><span>4</span> Date &amp; Time</div>
+          </div>
+
+          <form id="bookingForm" novalidate>
+
+            <!-- STEP 1: Contact Info -->
+            <div class="form-step" id="step1">
+              <h2>Your Information</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="John" required />
+                  <span class="field-error" id="firstNameErr"></span>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+                  <span class="field-error" id="lastNameErr"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" placeholder="john@email.com" required />
+                  <span class="field-error" id="emailErr"></span>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(802) 555-0123" required />
+                  <span class="field-error" id="phoneErr"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="notes">Special Notes</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Any special requests, allergies, or notes for your barber..."></textarea>
+              </div>
+              <button type="button" class="btn-primary next-btn" data-next="2">Next: Choose Service →</button>
+            </div>
+
+            <!-- STEP 2: Service -->
+            <div class="form-step hidden" id="step2">
+              <h2>Select a Service</h2>
+              <div class="service-options">
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Taper/Fade Haircut" data-price="$25" required />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">✂</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Taper/Fade Haircut</strong>
+                      <span>Clean sharp fade tailored to your style</span>
+                    </div>
+                    <div class="service-opt-price">$25</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Haircut + Beard" data-price="$30" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">💈</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Haircut + Beard</strong>
+                      <span>Full haircut with beard trim</span>
+                    </div>
+                    <div class="service-opt-price">$30</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Regular Haircut" data-price="$25" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">💇</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Regular Haircut</strong>
+                      <span>Classic cut — no fade or beard</span>
+                    </div>
+                    <div class="service-opt-price">$25</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Blowout" data-price="$25" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">💨</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Blowout</strong>
+                      <span>Nothing on top blowout style</span>
+                    </div>
+                    <div class="service-opt-price">$25</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Haircut with Blowout" data-price="$25" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">✨</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Haircut with Blowout</strong>
+                      <span>Precision cut with blowout finish</span>
+                    </div>
+                    <div class="service-opt-price">$25</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Haircut with Design" data-price="From $28" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">🎨</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Haircut with Design</strong>
+                      <span>Custom design, price varies</span>
+                    </div>
+                    <div class="service-opt-price">From $28</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Men's Head Shave" data-price="$22" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">🪒</div>
+                    <div class="service-opt-info">
+                      <strong>Men's Head Shave</strong>
+                      <span>Smooth head shave (beard add-on available)</span>
+                    </div>
+                    <div class="service-opt-price">$22</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Kids Haircut No Design" data-price="$25" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">👦</div>
+                    <div class="service-opt-info">
+                      <strong>Kids Haircut (No Design)</strong>
+                      <span>Patient, friendly cuts for little ones</span>
+                    </div>
+                    <div class="service-opt-price">$25</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Mobile – Low Caesar / All Around" data-price="From $25" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">🚗</div>
+                    <div class="service-opt-info">
+                      <strong>Mobile – Low Caesar / All Around</strong>
+                      <span>We come to you — beard optional</span>
+                    </div>
+                    <div class="service-opt-price">From $25</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Mobile – Skin Fade, Beard, Scissors & Eyebrows" data-price="From $30" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">🚗</div>
+                    <div class="service-opt-info">
+                      <strong>Mobile – Skin Fade Package</strong>
+                      <span>Skin fade + beard trim + scissors + eyebrows</span>
+                    </div>
+                    <div class="service-opt-price">From $30</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Women's Haircut / Back or Side Shave" data-price="Ask barber" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">💁</div>
+                    <div class="service-opt-info">
+                      <strong>Women's Haircut / Back or Side Shave</strong>
+                      <span>Customized to your individual style</span>
+                    </div>
+                    <div class="service-opt-price">Ask barber</div>
+                  </div>
+                </label>
+                <label class="service-option">
+                  <input type="radio" name="service" value="Full Color and Haircut" data-price="Ask barber" />
+                  <div class="service-opt-content">
+                    <div class="service-opt-icon">🎨</div>
+                    <div class="service-opt-info">
+                      <strong>Full Color and Haircut</strong>
+                      <span>All-over permanent or semi-permanent color</span>
+                    </div>
+                    <div class="service-opt-price">Ask barber</div>
+                  </div>
+                </label>
+              </div>
+              <span class="field-error" id="serviceErr"></span>
+              <div class="step-actions">
+                <button type="button" class="btn-ghost back-btn" data-prev="1">← Back</button>
+                <button type="button" class="btn-primary next-btn" data-next="3">Next: Choose Barber →</button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Barber -->
+            <div class="form-step hidden" id="step3">
+              <h2>Choose Your Barber</h2>
+              <div class="barber-options">
+                <label class="barber-option">
+                  <input type="radio" name="barber" value="Algenis Garcia" data-phone="(802) 557-2497" required />
+                  <div class="barber-opt-content">
+                    <div class="barber-opt-avatar">AG</div>
+                    <div class="barber-opt-info">
+                      <strong>Algenis Garcia</strong>
+                      <span>Cosmetology Barber · ⭐ 5.0 (80)</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="barber-option">
+                  <input type="radio" name="barber" value="Adonis Bastardo Garcia" data-phone="(802) 373-7328" />
+                  <div class="barber-opt-content">
+                    <div class="barber-opt-avatar">AB</div>
+                    <div class="barber-opt-info">
+                      <strong>Adonis Bastardo Garcia</strong>
+                      <span>Master Barber · ⭐ 5.0 (44)</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="barber-option">
+                  <input type="radio" name="barber" value="Edward S" data-phone="(802) 829-1384" />
+                  <div class="barber-opt-content">
+                    <div class="barber-opt-avatar">ES</div>
+                    <div class="barber-opt-info">
+                      <strong>Edward S</strong>
+                      <span>Senior Barber · ⭐ 4.9 (51)</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="barber-option">
+                  <input type="radio" name="barber" value="Chicky Abreu" data-phone="(603) 233-9659" />
+                  <div class="barber-opt-content">
+                    <div class="barber-opt-avatar">CA</div>
+                    <div class="barber-opt-info">
+                      <strong>Chicky Abreu</strong>
+                      <span>10+ Yrs Experience · ⭐ 4.9 (29)</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="barber-option">
+                  <input type="radio" name="barber" value="No Preference" data-phone="" />
+                  <div class="barber-opt-content">
+                    <div class="barber-opt-avatar">?</div>
+                    <div class="barber-opt-info">
+                      <strong>No Preference</strong>
+                      <span>First available barber</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <span class="field-error" id="barberErr"></span>
+              <div class="step-actions">
+                <button type="button" class="btn-ghost back-btn" data-prev="2">← Back</button>
+                <button type="button" class="btn-primary next-btn" data-next="4">Next: Pick Date & Time →</button>
+              </div>
+            </div>
+
+            <!-- STEP 4: Date & Time -->
+            <div class="form-step hidden" id="step4">
+              <h2>Date &amp; Time</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="apptDate">Preferred Date *</label>
+                  <input type="date" id="apptDate" name="apptDate" required />
+                  <span class="field-error" id="dateErr"></span>
+                </div>
+                <div class="form-group">
+                  <label for="apptTime">Preferred Time *</label>
+                  <select id="apptTime" name="apptTime" required>
+                    <option value="">Select a time</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="10:30 AM">10:30 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="11:30 AM">11:30 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="12:30 PM">12:30 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="1:30 PM">1:30 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="2:30 PM">2:30 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="3:30 PM">3:30 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="4:30 PM">4:30 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="5:30 PM">5:30 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="6:30 PM">6:30 PM</option>
+                  </select>
+                  <span class="field-error" id="timeErr"></span>
+                </div>
+              </div>
+              <div class="booking-summary" id="bookingSummary">
+                <h3>Booking Summary</h3>
+                <div class="summary-rows" id="summaryRows"></div>
+              </div>
+              <div class="policy-reminder">
+                <p>⏰ If running late, please text your barber. After 15 minutes, you may lose your slot.</p>
+                <p>📅 24-hour notice required for cancellations. No-shows will be charged.</p>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="agreePolicy" required />
+                  I understand and agree to the cancellation &amp; late policy.
+                </label>
+                <span class="field-error" id="policyErr"></span>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="btn-ghost back-btn" data-prev="3">← Back</button>
+                <button type="submit" class="btn-primary" id="submitBtn">Confirm Booking ✓</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="booking-sidebar">
+          <div class="sidebar-card">
+            <h3>Shop Info</h3>
+            <p>📍 463 St Paul St, Burlington, VT</p>
+            <p>📞 <a href="tel:+18025572497">(802) 557-2497</a></p>
+            <hr />
+            <h4>Hours</h4>
+            <table class="hours-table">
+              <tr><td>Mon</td><td>10AM – 5:30PM</td></tr>
+              <tr><td>Tue–Fri</td><td>10AM – 7PM</td></tr>
+              <tr><td>Thu</td><td>10AM – 6:30PM</td></tr>
+              <tr><td>Sat</td><td>10AM – 7PM</td></tr>
+              <tr class="closed"><td>Sun</td><td>Closed</td></tr>
+            </table>
+          </div>
+          <div class="sidebar-card">
+            <h3>Barber Contacts</h3>
+            <ul class="barber-contacts">
+              <li><strong>Algenis</strong> <a href="tel:+18025572497">(802) 557-2497</a></li>
+              <li><strong>Adonis</strong> <a href="tel:+18023737328">(802) 373-7328</a></li>
+              <li><strong>Edward</strong> <a href="tel:+18028291384">(802) 829-1384</a></li>
+              <li><strong>Chicky</strong> <a href="tel:+16032339659">(603) 233-9659</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card vagaro-cta">
+            <p>Also book instantly via</p>
+            <a href="https://www.vagaro.com/theshop3" target="_blank" rel="noopener" class="btn-primary">Book on Vagaro</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal">
+      <div class="modal-icon">✅</div>
+      <h2>Booking Request Sent!</h2>
+      <p id="confirmText">Thank you! Your appointment request has been received. Your barber will confirm via phone or text shortly.</p>
+      <div class="modal-details" id="modalDetails"></div>
+      <p class="modal-note">If you need to cancel, please give 24 hours notice. No-shows will be charged on next visit.</p>
+      <a href="index.html" class="btn-primary">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text">THE SHOP</span>
+          <p>Burlington's premier barbershop. Expert cuts, fades & grooming for everyone.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#barbers">Our Barbers</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>463 St Paul St<br />Burlington, VT 05401</p>
+          <p><a href="tel:+18025572497">(802) 557-2497</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 The Shop Barbershop · Burlington, VT · All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
